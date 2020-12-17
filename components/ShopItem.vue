@@ -17,7 +17,7 @@
 
       <template class="cardFooter1" #footer>
         <b-button-group class="w-100">
-          <b-button variant="success">Add to cart</b-button>
+          <b-button @click="addItem(item)" variant="success">Add to cart</b-button>
           <nuxt-link class="btn btn-info" :to="`/item/${item.id}`">
             View details
           </nuxt-link>
@@ -30,9 +30,14 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex"
+
 export default {
   name: "ShopItem",
-  props: ['item']
+  props: ['item'],
+  methods: {
+    ...mapMutations("shopBasket", ["addItem"])
+  }
 }
 </script>
 

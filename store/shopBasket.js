@@ -22,22 +22,20 @@ export const actions = {
 
 export const mutations = {
   openBasket(state) {
-    document.body.classList.add("my-class");
     state.isOpen = true;
   },
   closeBasket(state) {
-    document.body.classList.remove("my-class");
     state.isOpen = false;
     if (state.isOrdered === true) {
       state.isOrdered = false
     }
   },
   addItem(state, item) {
-    const newItem = {...item};
+    const newItem = {...item, id2: Math.random().toString(36).substr(2, 9)};
     state.items.push(newItem);
   },
   deleteItem(state, item) {
-    state.items = state.items.filter(i => i.id !== item.id);
+    state.items = state.items.filter(i => i.id2 !== item.id2);
   },
   checkoutSuccess(state) {
     state.items = [];

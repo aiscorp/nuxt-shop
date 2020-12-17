@@ -13,8 +13,8 @@
           <nuxt-link class="nav-link" active-class="active" to="/About">
             About
           </nuxt-link>
-          <div >
-            <b-avatar :badge="1" badge-top variant="primary" badge-variant="warning"
+          <div class="basketIcon ml-2" @click="openBasket">
+            <b-avatar  :badge="itemsCount ? itemsCount.toString():null" badge-top variant="primary" badge-variant="warning"
                       icon="cart4"/>
           </div>
         </b-navbar-nav>
@@ -24,12 +24,23 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+import { mapGetters } from "vuex";
+
 export default {
-  name: "VHeader"
+  name: "VHeader",
+  methods: {
+    ...mapMutations("shopBasket", ["openBasket"])
+  },
+  computed: {
+    ...mapGetters("shopBasket", ["itemsCount"])
+  }
 }
 </script>
 
 <style scoped>
-
+.basketIcon{
+  cursor:pointer;
+}
 
 </style>
