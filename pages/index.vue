@@ -1,7 +1,7 @@
 <template>
 
   <div class="container">
-    <h3>Car shop</h3>
+    <h2 class="my-4 ml-3">Каталог машин</h2>
     <ShopContainer/>
   </div>
 </template>

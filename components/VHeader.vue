@@ -13,6 +13,10 @@
           <nuxt-link class="nav-link" active-class="active" to="/About">
             About
           </nuxt-link>
+          <div >
+            <b-avatar :badge="1" badge-top variant="primary" badge-variant="warning"
+                      icon="cart4"/>
+          </div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

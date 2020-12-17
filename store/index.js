@@ -17,5 +17,9 @@ export const mutations = {
 }
 
 export const getters = {
-  items: state => state.items
+  items: state => state.items,
+  getItemById: state => id => {
+    return state.items.find(item => item.id === id)
+  },
+  getFirstItem: state => state.items.length ? state.items[0] : undefined
 }
