@@ -5,7 +5,9 @@ export const state = () => ({
 
 export const actions = {
   async nuxtServerInit({commit}) {
-    const items = await this.$axios.$get('https://api.mockaroo.com/api/af756e80?count=100&key=beedb770')
+    // Api with 200 request limit per day
+    // const items = await this.$axios.$get('https://api.mockaroo.com/api/af756e80?count=100&key=beedb770')
+    const items = await this.$axios.$get('https://api.mockaroo.com/api/8f8fe7c0?count=50&key=46dbe7a0')
     commit('setItems', items)
   }
 }
